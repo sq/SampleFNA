@@ -1,0 +1,10 @@
+﻿{
+  "Assemblies": {
+    "Proxies": [
+      "JSILProxies.dll"
+    ],
+	"Ignored": [
+	  "JSILProxies"
+	]
+  }
+}

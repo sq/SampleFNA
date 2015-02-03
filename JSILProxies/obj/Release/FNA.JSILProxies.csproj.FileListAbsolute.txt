@@ -1,0 +1,11 @@
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\obj\Release\FNA.JSILProxies.csprojResolveAssemblyReference.cache
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\FNA.JSILProxies.dll.config
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\FNA.JSILProxies.dll
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\FNA.JSILProxies.pdb
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\JSIL.Meta.dll
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\JSIL.Proxies.4.0.dll
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\JSIL.Meta.pdb
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\JSIL.Meta.xml
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\bin\Release\JSIL.Proxies.4.0.pdb
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\obj\Release\FNA.JSILProxies.dll
+C:\Users\Jaiden\JSIL\HelloWorld\FNA.JSILProxies\obj\Release\FNA.JSILProxies.pdb
