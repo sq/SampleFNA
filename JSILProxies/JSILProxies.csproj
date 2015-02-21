@@ -41,9 +41,11 @@
     <Compile Include="Proxies.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="JSIL.Meta, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Meta\obj\Debug\JSIL.Meta.dll</HintPath>
+    <Reference Include="JSIL">
+      <HintPath>..\..\JSIL\bin\JSIL.dll</HintPath>
+    </Reference>
+    <Reference Include="JSIL.Meta">
+      <HintPath>..\..\JSIL\bin\JSIL.Meta.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
