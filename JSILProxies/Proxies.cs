@@ -15,6 +15,16 @@ namespace HelloWorld.JSILProxies {
     }
 
     [JSProxy(
+        "SDL2.SDL",
+        JSProxyMemberPolicy.ReplaceDeclared
+    )]
+    public abstract class SDLProxy {
+        public static string SDL_GetPlatform() {
+            return "Windows";
+        }
+    }
+
+    [JSProxy(
         "Microsoft.Xna.Framework.SDL2_GameWindow",
         JSProxyMemberPolicy.ReplaceDeclared
     )]
