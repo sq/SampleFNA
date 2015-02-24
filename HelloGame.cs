@@ -37,7 +37,7 @@ namespace HelloWorld {
         protected override void Draw(GameTime gameTime) {
             base.Draw(gameTime);
 
-            graphics.GraphicsDevice.Clear(Color.BlanchedAlmond);
+            graphics.GraphicsDevice.Clear(Color.CornflowerBlue);
         }
     }
 }
