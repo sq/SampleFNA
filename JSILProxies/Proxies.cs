@@ -25,11 +25,23 @@ namespace HelloWorld.JSILProxies {
     }
 
     [JSProxy(
+        "Microsoft.XNA.Framework.Input",
+        JSProxyMemberPolicy.ReplaceDeclared
+    )]
+    public abstract class GamepadProxy {
+        internal static void INTERNAL_InitMonoGameJoystick() {
+            Console.WriteLine("INTERNAL_InitMonoGameJoystick");
+            // Do nothing for now
+        }
+    }
+
+    [JSProxy(
         "Microsoft.Xna.Framework.SDL2_GameWindow",
         JSProxyMemberPolicy.ReplaceDeclared
     )]
     public abstract class SDL2_GameWindowProxy {
         private void INTERNAL_SetIcon(string title) {
+            Console.WriteLine("INTERNAL_SetIcon");
             // Setting favicons is the html's business
         }
     }
