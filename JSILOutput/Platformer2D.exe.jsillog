@@ -1,0 +1,25 @@
+// JSILc v0.8.271
+// Build took 0008.21 second(s).
+// The following configuration was used when translating 'C:\Users\Jaiden\sq\SampleFNA\Platformer2D\bin\WindowsGL\Debug\Platformer2D.exe':
+{"ContributingPaths":["C:\\Users\\Jaiden\\sq\\JSIL\\bin\\defaults.jsilconfig","C:\\Users\\Jaiden\\sq\\SampleFNA\\HelloWorld.sln.jsilconfig"],"Path":"C:\\Users\\Jaiden\\sq\\SampleFNA","SolutionBuilder":{"Configuration":null,"Platform":null,"Target":null,"LogVerbosity":null,"ExtraOutputs":[]},"AutoLoadConfigFiles":null,"UseLocalProxies":null,"ReuseTypeInfoAcrossAssemblies":null,"OutputDirectory":"%currentdirectory%","FileOutputDirectory":null,"Profile":"Default","ProfileSettings":{"OverwriteExistingContent":true,"ContentOutputDirectory":"%outputdirectory%/Content"},"AnalyzerSettings":{},"CustomVariables":{},"ApplyDefaults":null,"IncludeDependencies":null,"UseSymbols":null,"UseThreads":null,"UseDefaultProxies":null,"GenerateSkeletonsForStubbedAssemblies":null,"GenerateContentManifest":null,"RunBugChecks":null,"TuneGarbageCollection":null,"FilenameEscapeRegex":null,"AssemblyCollectionName":null,"FrameworkVersion":null,"Assemblies":{"TranslateAdditional":[],"Ignored":["Microsoft\\.VisualC,","Accessibility,","SMDiagnostics,","System\\.EnterpriseServices,","System\\.Security,","System\\.Runtime\\.Serialization\\.Formatters\\.Soap,","System\\.Runtime\\.DurableInstancing,","System\\.Data\\.SqlXml,","JSIL\\.Meta,","JSILProxies"],"Stubbed":["mscorlib,","^System,","^System\\.(.+),","^Microsoft\\.(.+),","FSharp.Core,"],"Proxies":[],"Redirects":{}},"CodeGenerator":{"EliminateStructCopies":null,"SimplifyOperators":null,"SimplifyLoops":null,"EliminateTemporaries":null,"EliminateRedundantControlFlow":null,"CacheMethodSignatures":null,"CacheGenericMethodSignatures":null,"CacheTypeExpressions":null,"CacheBaseMethodHandles":null,"EliminatePointlessFinallyBlocks":null,"PreferAccessorMethods":null,"HintIntegerArithmetic":null,"EnableThreadedTransforms":null,"FreezeImmutableObjects":null,"EnableUnsafeCode":true,"HoistAllocations":null,"HintDoubleArithmetic":null,"AutoGenerateEventAccessorsInSkeletons":null,"AggressivelyUseElementProxies":null,"EmitAllParameterNames":null}}
+// The configuration was generated from the following configuration files:
+C:\Users\Jaiden\sq\JSIL\bin\defaults.jsilconfig
+C:\Users\Jaiden\sq\SampleFNA\HelloWorld.sln.jsilconfig
+// The following outputs were produced:
+System.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089.js
+Platformer2D, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null.js
+System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a.js
+System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089.js
+System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089.js
+FNA, Version=0.0.0.1, Culture=neutral, PublicKeyToken=null.js
+System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089.js
+mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089.js
+Microsoft.Xna.Framework.Graphics.Effect.Resources.AlphaTestEffect.ogl.mgfxo
+Microsoft.Xna.Framework.Graphics.Effect.Resources.BasicEffect.ogl.mgfxo
+Microsoft.Xna.Framework.Graphics.Effect.Resources.DualTextureEffect.ogl.mgfxo
+Microsoft.Xna.Framework.Graphics.Effect.Resources.EnvironmentMapEffect.ogl.mgfxo
+Microsoft.Xna.Framework.Graphics.Effect.Resources.SkinnedEffect.ogl.mgfxo
+Microsoft.Xna.Framework.Graphics.Effect.Resources.SpriteEffect.ogl.mgfxo
+// The following method(s) were ignored due to untranslatable variables:
+// Miscellaneous log output follows:
+

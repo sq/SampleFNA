@@ -1,0 +1,1 @@
+..\..\JSIL\bin\JSILc ..\HelloWorld.sln

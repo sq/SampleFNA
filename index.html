@@ -8,11 +8,11 @@
       var jsilConfig = {
         printStackTrace: false,
 	      libraryRoot: "../JSIL/Libraries/",
-        manifestRoot: "bin/JSIL/",
-        scriptRoot: "bin/JSIL/",
+        manifestRoot: "JSILOutput/",
+        scriptRoot: "JSILOutput/",
         manifests: [       
-          "HelloWorld.exe",
-          "../../SDL2.dll"
+          "Platformer2D.exe",
+          "../SDL2.dll"
         ],
       };
     </script>
@@ -26,13 +26,13 @@
     <script type="text/javascript">
       function runMain () {
         // We can't invoke Main() since it disposes the Game immediately, breaking everything.
-        window.asm = JSIL.GetAssembly("HelloWorld", true);
+        window.asm = JSIL.GetAssembly("Platformer2D", true);
         var module = JSIL.PInvoke.GetModule("SDL2.dll");
         module.canvas = document.getElementById("canvas");
         module.memoryInitializerPrefixURL = "/Libraries/SDL2/";
         module.printErr = function(s) { console.error(s) };
         window.module = module;
-        var game = new asm.HelloWorld.HelloGame();
+        var game = new asm.Platformer2D.PlatformerGame();
         game.Run();
       };
     </script>
