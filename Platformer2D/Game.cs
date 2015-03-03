@@ -15,6 +15,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 
+
 namespace Platformer2D
 {
     /// <summary>
@@ -66,10 +67,9 @@ namespace Platformer2D
 #if WINDOWS_PHONE
             TargetElapsedTime = TimeSpan.FromTicks(333333);
 #endif
-            graphics.IsFullScreen = true;
-
-            //graphics.PreferredBackBufferWidth = 800;
-            //graphics.PreferredBackBufferHeight = 480;
+            graphics.IsFullScreen = false;
+            graphics.PreferredBackBufferWidth = 800;
+            graphics.PreferredBackBufferHeight = 480;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
 
             Accelerometer.Initialize();
@@ -86,7 +86,6 @@ namespace Platformer2D
 
             // Load fonts
             hudFont = Content.Load<SpriteFont>("Fonts/Hud");
-            Content.RootDirectory = "Content";
 
             // Load overlay textures
             winOverlay = Content.Load<Texture2D>("Overlays/you_win");
