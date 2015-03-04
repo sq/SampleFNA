@@ -1,0 +1,12 @@
+﻿{
+  "Assemblies": {
+    "Proxies": [
+    ],
+	"Ignored": [
+	  "JSILProxies"
+	]
+  },
+  "CodeGenerator": {
+	"EnableUnsafeCode": true
+  }
+}
