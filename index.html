@@ -6,15 +6,24 @@
   <body onload="onLoad()">    
     <script type="text/javascript">
       var jsilConfig = {
-        printStackTrace: false,
 	      libraryRoot: "../JSIL/Libraries/",
         manifestRoot: "bin/JSIL/",
         scriptRoot: "bin/JSIL/",
+        fileRoot: "bin/JSIL/",
+        assetRoot: "bin/JSIL/",
+        contentRoot: "bin/JSIL/Content/",
         manifests: [       
           "Platformer2D.exe",
           "../../SDL2.dll"
         ],
+        readOnlyStorage: true,
+        localStorage: true
       };
+
+      window.assetsToLoad = [
+        ["File", "Content/Fonts/Hud.xnb"]
+      ]
+
     </script>
     <script src="../JSIL/Libraries/JSIL.js" type="text/javascript"></script>
 
@@ -26,6 +35,7 @@
     <script type="text/javascript">
       function runMain () {
         // We can't invoke Main() since it disposes the Game immediately, breaking everything.
+        $jsilbrowserstate.allFileNames.push("foo");
         window.asm = JSIL.GetAssembly("Platformer2D", true);
         var module = JSIL.PInvoke.GetModule("SDL2.dll");
         module.canvas = document.getElementById("canvas");
