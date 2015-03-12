@@ -1,1 +1,1 @@
-..\JSIL\bin\JSILc HelloWorld.sln --out=bin/JSIL/
+..\JSIL\bin\JSILc HelloWorld.sln --configuration=JSIL --out=bin/JSIL/
