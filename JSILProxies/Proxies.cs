@@ -64,4 +64,16 @@ namespace HelloWorld.JSILProxies {
             return new Char[] { }; 
         }
     }
+
+    [JSProxy(
+        "Microsoft.Xna.Framework.Graphics.JSILHelpers",
+        JSProxyMemberPolicy.ReplaceDeclared
+    )]
+    public abstract class JSILHelpersProxy {
+        [JSReplacement("$data.bytes")]
+        public static T[] GetBytes<T>(T[] data)
+            where T : struct {
+            return data;
+        }
+    }
 }
