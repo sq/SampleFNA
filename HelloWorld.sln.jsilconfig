@@ -3,11 +3,11 @@
     "Proxies": [
       "bin/JSIL/JSILProxies.dll"
     ],
-	"Ignored": [
-	  "JSILProxies"
-	]
+  	"Ignored": [
+  	  "JSILProxies"
+  	]
   },
   "CodeGenerator": {
-	"EnableUnsafeCode": true
+	 "EnableUnsafeCode": true
   }
 }
