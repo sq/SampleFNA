@@ -76,4 +76,24 @@ namespace HelloWorld.JSILProxies {
             return data;
         }
     }
+
+    [JSProxy(
+        "Platformer2D.PlatformerGame",
+        JSProxyMemberPolicy.ReplaceNone
+    )]
+    public class PlatformerGameProxy {
+        public void Run () {
+        }
+    }
+
+    [JSProxy(
+        "Platformer2D.Program",
+        JSProxyMemberPolicy.ReplaceDeclared
+    )]
+    public abstract class ProgramProxy {
+		public static void Main () {
+            var game = new PlatformerGameProxy();
+            game.Run();
+        }
+    }
 }
