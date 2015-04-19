@@ -1,4 +1,5 @@
 ﻿using System;
+using JSIL;
 using JSIL.Meta;
 using JSIL.Proxy;
 
@@ -70,10 +71,10 @@ namespace HelloWorld.JSILProxies {
         JSProxyMemberPolicy.ReplaceDeclared
     )]
     public abstract class JSILHelpersProxy {
-        [JSReplacement("$data.bytes")]
-        public static T[] GetBytes<T>(T[] data)
-            where T : struct {
-            return data;
+        internal static void BufferSubData (string p, int elementSizeInBytes, int offsetInBytes, Array data, int startIndex, int elementCount) {
+            dynamic gl = Builtins.Global["document"].getElementById("canvas").getContext("webgl");
+            object view = Verbatim.Expression("new Uint8Array($0.buffer, $1, $2)", data, offsetInBytes, elementSizeInBytes * elementCount);
+            gl.bufferSubData(gl[p], startIndex, view);
         }
     }
 

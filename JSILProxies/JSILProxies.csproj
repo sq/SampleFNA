@@ -65,6 +65,7 @@
     <Reference Include="JSIL.Meta">
       <HintPath>..\..\JSIL\bin\JSIL.Meta.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
