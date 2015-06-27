@@ -14,7 +14,7 @@ namespace HelloWorld.JSILProxies {
             throw new NotImplementedException();
         }
     }
-
+        
     [JSProxy(
         "SDL2.SDL",
         JSProxyMemberPolicy.ReplaceDeclared
@@ -44,15 +44,6 @@ namespace HelloWorld.JSILProxies {
         private void INTERNAL_SetIcon(string title) {
             Console.WriteLine("INTERNAL_SetIcon");
             // Setting favicons is the html's business
-        }
-    }
-
-    [JSProxy(
-        "Microsoft.Xna.Framework.Audio.OpenALDevice",
-        JSProxyMemberPolicy.ReplaceDeclared
-    )]
-    public abstract class OpenALDeviceProxy {
-        public static void Initialize() {
         }
     }
 
