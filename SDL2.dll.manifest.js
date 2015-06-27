@@ -2,5 +2,5 @@
 
 if (typeof (contentManifest) !== "object") { JSIL.GlobalNamespace.contentManifest = {}; };
 contentManifest["SDL2.dll"] = [
-    ["NativeLibrary", "SDL2.js"]
+    ["NativeLibrary", "../../SampleFNA/SDL2.js"]
 ];
