@@ -147,9 +147,9 @@ namespace Platformer2D
             localBounds = new Rectangle(left, top, width, height);
 
             // Load sounds.            
-            //killedSound = Level.Content.Load<SoundEffect>("Sounds/PlayerKilled");
-            //jumpSound = Level.Content.Load<SoundEffect>("Sounds/PlayerJump");
-            //fallSound = Level.Content.Load<SoundEffect>("Sounds/PlayerFall");
+            killedSound = Level.Content.Load<SoundEffect>("Sounds/PlayerKilled");
+            jumpSound = Level.Content.Load<SoundEffect>("Sounds/PlayerJump");
+            fallSound = Level.Content.Load<SoundEffect>("Sounds/PlayerFall");
         }
 
         /// <summary>
@@ -314,8 +314,8 @@ namespace Platformer2D
                 // Begin or continue a jump
                 if ((!wasJumping && IsOnGround) || jumpTime > 0.0f)
                 {
-                    //if (jumpTime == 0.0f)
-                    //    jumpSound.Play();
+                    if (jumpTime == 0.0f)
+                        jumpSound.Play();
 
                     jumpTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
                     sprite.PlayAnimation(jumpAnimation);
@@ -423,10 +423,10 @@ namespace Platformer2D
         {
             isAlive = false;
 
-            //if (killedBy != null)
-                //killedSound.Play();
-            //else
-                //fallSound.Play();
+            if (killedBy != null)
+                killedSound.Play();
+            else
+                fallSound.Play();
 
             sprite.PlayAnimation(dieAnimation);
         }

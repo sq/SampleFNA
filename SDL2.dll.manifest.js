@@ -6,5 +6,5 @@ contentManifest["SDL2.dll"] = [
 ];
 
 contentManifest["soft_oal.dll"] = [
-   ["Library", "../../SampleFNA/soft_oal.js"]
+   ["NativeLibrary", "../../SampleFNA/soft_oal.js"]
 ];
