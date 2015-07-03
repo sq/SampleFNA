@@ -1,11 +1,11 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:../bin/JSIL
+/outputDir:../../bin/JSIL/Content
 /intermediateDir:obj
-/platform:Windows
+/platform:WindowsGL
 /config:
-/profile:Reach
+/profile:HiDef
 /compress:False
 
 #-------------------------------- References --------------------------------#
