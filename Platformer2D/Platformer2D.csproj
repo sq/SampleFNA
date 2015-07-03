@@ -69,9 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Platformer2D.mgcb">
-      <Link>Content\Platformer2D.mgcb</Link>
-    </MonoGameContentReference>
+    <MonoGameContentReference Include="Content\Platformer2D.mgcb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\FNA\FNA.csproj">
@@ -104,18 +102,18 @@
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\" />
-    <Folder Include="Game\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <!-- Don't edit this build event by hand! The condition ensures that when VS kicks off a JSILc build, JSILc won't then kick off another JSILc build recursively, forever... -->
+  <PropertyGroup Condition="$(JSIL) != 'building'">
+    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <PostBuildEvent>
+      @echo Doing JSIL build...
+      @pushd $(SolutionDir)
+      @call buildJSIL.bat
+      @popd
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>

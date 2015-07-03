@@ -109,7 +109,8 @@ namespace Platformer2D
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Play(Content.Load<Song>("Sounds/Music"));
             }
-            catch { }
+            catch { 
+            }
 
             LoadNextLevel();
         }
