@@ -4,7 +4,12 @@
       "bin/JSIL/JSILProxies.dll"
     ],
   	"Ignored": [
-  	  "JSILProxies"
+  	  "JSILProxies",
+      "System.Xml",
+      "System.Numerics",
+      "System.Dynamic",
+      "System.Configuration",
+      "Microsoft.CSharp"
   	]
   },
   "CodeGenerator": {
