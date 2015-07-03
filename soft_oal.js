@@ -18,24 +18,84 @@ return{_malloc:Ic,_strlen:Nc,_memcpy:Lc,_free:Jc,_memset:Mc,runPostSets:Kc,stack
 
 
 
+  // HACK (Mispy)
+  Module.alBufferData = function(buffer, format, data, size, freq) {
+    if (!AL.currentContext) {
+      console.error("alBufferData called without a valid context");
+      return;
+    }
+    if (buffer > AL.currentContext.buf.length) {
+      console.error("alBufferData called with an invalid buffer");
+      return;
+    }
+    var channels, bytes;
+    switch (format) {
+    case 0x1100 /* AL_FORMAT_MONO8 */:
+      bytes = 1;
+      channels = 1;
+      break;
+    case 0x1101 /* AL_FORMAT_MONO16 */:
+      bytes = 2;
+      channels = 1;
+      break;
+    case 0x1102 /* AL_FORMAT_STEREO8 */:
+      bytes = 1;
+      channels = 2;
+      break;
+    case 0x1103 /* AL_FORMAT_STEREO16 */:
+      bytes = 2;
+      channels = 2;
+      break;
+    case 0x10010 /* AL_FORMAT_MONO_FLOAT32 */:
+      bytes = 4;
+      channels = 1;
+      break;
+    case 0x10011 /* AL_FORMAT_STEREO_FLOAT32 */:
+      bytes = 4;
+      channels = 2;
+      break;
+    default:
+      console.error("alBufferData called with invalid format " + format);
+      return;
+    }
+    try {
+      AL.currentContext.buf[buffer - 1] = AL.currentContext.ctx.createBuffer(channels, size / (bytes * channels), freq);
+      AL.currentContext.buf[buffer - 1].bytesPerSample =  bytes;
+    } catch (e) {
+      AL.currentContext.err = 0xA003 /* AL_INVALID_VALUE */;
+      return;
+    }
+    var buf = new Array(channels);
+    for (var i = 0; i < channels; ++i) {
+      buf[i] = AL.currentContext.buf[buffer - 1].getChannelData(i);
+    }
+    var memoryRange = JSIL.GetMemoryRangeForBuffer(data.buffer);
+    var nativeView = null;
+
+    switch (bytes) {
+      case 1:
+        nativeView = memoryRange.getView($jsilcore.System.Byte.__Type__);
+        break;
+      case 2:
+        nativeView = memoryRange.getView($jsilcore.System.Int16.__Type__);
+        break;
+    }
+
+    for (var i = 0; i < size / (bytes * channels); ++i) {
+      for (var j = 0; j < channels; ++j) {
+        switch (bytes) {
+        case 1:
+          var val = nativeView[i*channels+j]; // unsigned int8
+          buf[j][i] = -1.0 + val * (2/256);
+          break;
+        case 2:
+          var val = nativeView[i*channels+j]; // signed int16?
+          buf[j][i] = val / 32768;
+          break;
+        }
+      }
+    }
+  };
+
   return Module;
 };
-
-window.alBufferData = function(buffer, format, data, size, sampleRate) {
-  var Module = JSIL.PInvoke.GetModule("soft_oal.dll");
-
-  var _alBufferData = Module.cwrap(
-    'alBufferData', null, ['number', 'number', 'number', 'number', 'number']
-  );
-
-  var nDataBytes = data.length * data.BYTES_PER_ELEMENT;
-  var dataPtr = Module._malloc(nDataBytes);
-
-  var dataHeap = new Uint8Array(Module.HEAPU8.buffer, dataPtr, nDataBytes);
-  dataHeap.set(new Uint8Array(data.buffer));
-
-  _alBufferData(buffer, format, dataHeap.byteOffset, size, sampleRate);
-
-  Module._free(dataHeap.byteOffset);
-
-}

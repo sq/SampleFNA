@@ -75,7 +75,7 @@ namespace HelloWorld.JSILProxies {
     )]
     public abstract class JSILHelpersALProxy {
         internal static void alBufferData(uint buffer, int format, Array data, int length, uint sampleRate) {
-            Verbatim.Expression("JSIL.PInvoke.GetModule('soft_oal.dll').alBufferData($0, $1, $2, $5, $6)", buffer, format, data, 0, length, length, sampleRate);
+            Verbatim.Expression("JSIL.PInvoke.GetModule('soft_oal.dll').alBufferData($0, $1, $2, $3, $4)", buffer, format, data, length, sampleRate);
         }
     }
 
