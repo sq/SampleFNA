@@ -64,9 +64,9 @@ namespace Platformer2D
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-#if WINDOWS_PHONE
-            TargetElapsedTime = TimeSpan.FromTicks(333333);
-#endif
+            TargetElapsedTime = TimeSpan.FromSeconds(1.0 / 60.0);
+            IsFixedTimeStep = true;
+
             graphics.IsFullScreen = false;
             graphics.PreferredBackBufferWidth = 800;
             graphics.PreferredBackBufferHeight = 480;
