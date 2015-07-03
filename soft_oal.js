@@ -20,3 +20,22 @@ return{_malloc:Ic,_strlen:Nc,_memcpy:Lc,_free:Jc,_memset:Mc,runPostSets:Kc,stack
 
   return Module;
 };
+
+window.alBufferData = function(buffer, format, data, size, sampleRate) {
+  var Module = JSIL.PInvoke.GetModule("soft_oal.dll");
+
+  var _alBufferData = Module.cwrap(
+    'alBufferData', null, ['number', 'number', 'number', 'number', 'number']
+  );
+
+  var nDataBytes = data.length * data.BYTES_PER_ELEMENT;
+  var dataPtr = Module._malloc(nDataBytes);
+
+  var dataHeap = new Uint8Array(Module.HEAPU8.buffer, dataPtr, nDataBytes);
+  dataHeap.set(new Uint8Array(data.buffer));
+
+  _alBufferData(buffer, format, dataHeap.byteOffset, size, sampleRate);
+
+  Module._free(dataHeap.byteOffset);
+
+}

@@ -69,6 +69,16 @@ namespace HelloWorld.JSILProxies {
         }
     }
 
+   [JSProxy(
+        "Microsoft.Xna.Framework.Audio.JSILHelpers",
+        JSProxyMemberPolicy.ReplaceDeclared
+    )]
+    public abstract class JSILHelpersALProxy {
+        internal static void alBufferData(uint buffer, int format, Array data, int length, uint sampleRate) {
+            Verbatim.Expression("JSIL.PInvoke.GetModule('soft_oal.dll').alBufferData($0, $1, $2, $5, $6)", buffer, format, data, 0, length, length, sampleRate);
+        }
+    }
+
     [JSProxy(
         "Platformer2D.PlatformerGame",
         JSProxyMemberPolicy.ReplaceNone
@@ -77,7 +87,7 @@ namespace HelloWorld.JSILProxies {
         public void Run () {
         }
     }
-
+    
     [JSProxy(
         "Platformer2D.Program",
         JSProxyMemberPolicy.ReplaceDeclared
