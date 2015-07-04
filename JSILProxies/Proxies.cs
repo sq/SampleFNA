@@ -52,7 +52,11 @@ namespace HelloWorld.JSILProxies {
     )]
     public abstract class JSILHelpersProxy {
         internal static void BufferSubData (string p, int elementSizeInBytes, int offsetInBytes, Array data, int startIndex, int elementCount) {
-            dynamic gl = Builtins.Global["document"].getElementById("canvas").getContext("webgl");
+            dynamic gl = Verbatim.Expression(
+                "this.cachedGlContext " +
+                "  ? this.cachedGlContext " +
+                "  : (this.cachedGlContext = document.getElementById('canvas').getContext('webgl'))"
+            );
             object view = Verbatim.Expression("new Uint8Array($0.buffer, $1, $2)", data, offsetInBytes, elementSizeInBytes * elementCount);
             gl.bufferSubData(gl[p], startIndex, view);
         }

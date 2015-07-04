@@ -108,7 +108,7 @@
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- Don't edit this build event by hand! The condition ensures that when VS kicks off a JSILc build, JSILc won't then kick off another JSILc build recursively, forever... -->
   <PropertyGroup Condition="$(JSIL) != 'building'">
-    <RunPostBuildEvent>OnOutputUpdated</RunPostBuildEvent>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <PostBuildEvent>
       @echo Doing JSIL build...
       @pushd $(SolutionDir)
