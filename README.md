@@ -1,5 +1,5 @@
 # SampleFNA
-A browser port of the MonoGame Platformer2D sample, using FNA (an open-source implementation of the XNA libraries), SDL2 (compiled with emscripten), and JSIL.
+A browser port of the MonoGame Platformer2D sample, using [FNA](https://github.com/flibitijibibo/FNA) (an open-source implementation of the XNA libraries), [SDL2](https://github.com/emscripten-ports/SDL2), Emscripten, and JSIL.
 
 ## Building
 * You'll need to have [JSIL](https://github.com/sq/JSIL) checked out in a folder *next to* this one, so that ```SampleFNA\..\JSIL``` is valid.
