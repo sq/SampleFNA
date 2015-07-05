@@ -6,8 +6,10 @@ A browser port of the MonoGame Platformer2D sample, using [FNA](https://github.c
 * You also need to clone the [FNA fork](https://github.com/sq/FNA) next to this repository, so that ```SampleFNA\..\FNA``` is valid. In the future we hope to merge this support into trunk FNA (and add it as a submodule to this sample).
 * Building the project in Visual Studio will automatically invoke ```JSILc``` to generate the appropriate JavaScript files. Check the build output window to see the results. (You can also run the ```buildJSIL.bat``` file directly.)
 * You will need the latest [MonoGame SDK](http://www.monogame.net/downloads/) installed if you want to compile the sample's content into the ```XNB``` files used by the sample. Once you have it installed, double-click the ```Platformer2D\Content\Platformer2d.mgcb``` file to open the content build tool and Build to create the necessary content files. This only needs to be done once.
-* For music playback to work, you'll need to convert ```Music.wma``` into an ogg vorbis file called ```Music.ogg```, next to the ```Music.xnb``` file created by the content builder above. Sadly, the content builder cannot do this for us. (JSILc may acquire the ability to do this in the future.)
-* To build ```SDL2.js``` you'll need to install the latest Emscripten and compile an empty C file using ```-s USE_SDL=2```, specifying an exports list for all the necessary SDL functions. *todo: more detail here*
+* For Song playback to work, you'll need to convert ```Music.wma``` into an ogg vorbis file called ```Music.ogg```, next to the ```Music.xnb``` file created by the content builder above. Sadly, the content builder cannot do this for us. (JSILc may acquire the ability to do this in the future.)
+* To build ```SDL2.js``` install the latest Emscripten SDK and run ```buildSDL.bat```.
+* To build ```soft_oal.js``` install the latest Emscripten SDK and run ```buildOpenAL.bat```
+  * For Song playback to work you will need to hand-edit ```soft_oal.js``` by searching for ```var AL={contexts:``` and replacing it with ```var AL=Module["OpenAL"]={contexts:```. This is a workaround for an [open Emscripten issue](https://github.com/kripken/emscripten/issues/3599).
 
 ## Running
 Open ```index.html``` in a browser. **However, this will only work when loaded from a web server, because modern web browsers deny access to resources over the ```file://``` protocol.**
