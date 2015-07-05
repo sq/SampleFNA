@@ -438,7 +438,7 @@
 #begin Fonts/Hud.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
+/processorParam:TextureFormat=Color
 /build:Fonts/Hud.spritefont
 
 #begin Sounds/ExitReached.wav
