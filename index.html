@@ -6,10 +6,78 @@
     <style>
       html, body {
         font-family: Fira Sans, Calibri, Tahoma, sans-serif;
+        margin: 0px;
+        padding: 0px;
+        background-color: black;
+        color: rgb(210, 210, 210);
+      }
+
+      a, a:visited {
+        color: rgb(180, 230, 255);
+      }
+
+      canvas {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+        image-rendering: pixelated;
+        -ms-interpolation-mode: nearest-neighbor;
+      }
+
+      div#log {
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: 16px;
+      }
+
+      #loadingProgress {
+        position: relative;
+        display: block;
+        background-color: black;
+        color: white;
+        top: 200px;
+        width: 600px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16pt;
+        font-weight: bold;
+        border-style: solid;
+        border-color: white;
+        border-width: 2px;
+        border-radius: 16px;
+        z-index: 99;
+      }
+
+      #progressText {
+        position: absolute;
+        text-align: center;
+        text-shadow: #000000 1px 1px 0px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: rgba(0, 0, 0, 0.33);
+        border-radius: 8px;
+        color: white;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 6px;
+        padding-right: 6px;
+        max-width: 90%;
+        max-height: 1.1em;
+      }
+
+      #progressBar {
+        border-radius: 16px;
+        background-color: rgb(127, 140, 160);
+        height: 60px;
+        margin: -1px;
+        padding: 0px;
       }
     </style>
   </head>
-  <body onload="onLoad()">
+  <body onload="onLoad()" onresize="onResize()">
     <script type="text/javascript">
       var jsilConfig = {
 	      libraryRoot: "../JSIL/Libraries/",
@@ -37,7 +105,9 @@
         JSIL.ThrowOnStaticCctorError = true;
     </script>
 
-    <canvas id="canvas" width="800" height="480" style="display: block; margin-left: auto; margin-right: auto;">
+    <div id="loadingProgress"></div>
+
+    <canvas id="canvas" width="800" height="480">
     </canvas><br>
     <div id="log">
     <center><b><i>Ported with <a href="http://jsil.org/" target="_blank">JSIL</a> and <a href="http://emscripten.org/" target="_blank">Emscripten</a>. See the <a href="https://github.com/sq/SampleFNA/blob/master/README.md" target="_blank">Readme</a>.</i></b></center>
@@ -45,6 +115,28 @@
     </div>
  
     <script type="text/javascript">
+      function onResize () {
+        var canvas = document.getElementById("canvas");
+        var nativeWidth = canvas.width | 0;
+        var nativeHeight = canvas.height | 0;
+        var deviceRatio = window.devicePixelRatio || 1.0;
+        var windowNativeWidth = window.innerWidth * deviceRatio;
+        var windowNativeHeight = (window.innerHeight * deviceRatio) - 200 /* padding */;
+
+        var targetRatio = Math.floor(Math.min(
+          windowNativeWidth / nativeWidth,
+          windowNativeHeight / nativeHeight
+        ));
+        if (targetRatio < 1)
+          targetRatio = 1;
+
+        var cssWidth = (nativeWidth * targetRatio / deviceRatio).toFixed(2);
+        var cssHeight = (nativeHeight * targetRatio / deviceRatio).toFixed(2);
+
+        canvas.style.width = cssWidth + "px";
+        canvas.style.height = cssHeight + "px";
+      }
+
       function runMain () {
         // We can't invoke Main() since it disposes the Game immediately, breaking everything.
         window.asm = JSIL.GetAssembly("Platformer2D", true);
@@ -55,6 +147,9 @@
         window.module = module;
         var game = new asm.Platformer2D.PlatformerGame();
         game.Run();
+        onResize();
+
+        window.setTimeout(onResize, 50);
       };
     </script>
   </body>
