@@ -10,3 +10,8 @@ A browser port of the MonoGame Platformer2D sample, using FNA (an open-source im
 
 ## Running
 Open ```index.html``` in a browser. **However, this will only work when loaded from a web server, because modern web browsers deny access to resources over the ```file://``` protocol.**
+
+## Authors & Copyright
+* The FNA and Platformer2D ports are the work of [Katelyn Gadd](https://github.com/kg) and [Jaiden Mispy](https://github.com/mispy), aided by partial sponsorship from [the Mozilla Foundation](https://www.mozilla.org/en-US/).
+* The Platformer2D sample is derived from [the MonoGame Platformer2D sample](https://github.com/Mono-Game/MonoGame.Samples).
+* [FNA](https://github.com/flibitijibibo/FNA) is the work of [Ethan Lee](https://github.com/flibitijibibo) and numerous other authors.
