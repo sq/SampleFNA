@@ -2,8 +2,14 @@
 <html>
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>2D Platformer Starter Kit (JSIL + FNA + SDL2 + Emscripten)</title>
+    <style>
+      html, body {
+        font-family: Fira Sans, Calibri, Tahoma, sans-serif;
+      }
+    </style>
   </head>
-  <body onload="onLoad()">    
+  <body onload="onLoad()">
     <script type="text/javascript">
       var jsilConfig = {
 	      libraryRoot: "../JSIL/Libraries/",
@@ -31,8 +37,12 @@
         JSIL.ThrowOnStaticCctorError = true;
     </script>
 
-    <canvas id="canvas" width="1280" height="720">
+    <canvas id="canvas" width="800" height="480" style="display: block; margin-left: auto; margin-right: auto;">
     </canvas><br>
+    <div id="log">
+    <center><b><i>Ported with <a href="http://jsil.org/" target="_blank">JSIL</a> and <a href="http://emscripten.org/" target="_blank">Emscripten</a>. See the <a href="https://github.com/sq/SampleFNA/blob/master/README.md" target="_blank">Readme</a>.</i></b></center>
+    <center><i>Use the arrow keys and spacebar, or press a button on your gamepad to enable it.</i></center>
+    </div>
  
     <script type="text/javascript">
       function runMain () {

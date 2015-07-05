@@ -31,7 +31,6 @@ namespace HelloWorld.JSILProxies {
     )]
     public abstract class SDL2_GameWindowProxy {
         private void INTERNAL_SetIcon(string title) {
-            Console.WriteLine("INTERNAL_SetIcon");
             // Setting favicons is the html's business
         }
     }
@@ -66,20 +65,24 @@ namespace HelloWorld.JSILProxies {
         }
 
         internal static void BeginDecodeSong (string filename, JSIL.SongDecodeCompleteHandler onDecodeComplete) {
-            Console.WriteLine("Starting decode for {0}", filename);
+            try {
+                dynamic stream = System.IO.File.OpenRead(filename);
+                // HACK: JSIL stores the underlying byte array for the file as a property on the stream
+                dynamic fileByteArray = stream._buffer;
+                object fileArrayBuffer = fileByteArray.buffer;
 
-            dynamic stream = System.IO.File.OpenRead(filename);
-            // HACK: JSIL stores the underlying byte array for the file as a property on the stream
-            dynamic fileByteArray = stream._buffer;
-            object fileArrayBuffer = fileByteArray.buffer;
+                dynamic al = JSIL.FNAHelpers.GetALContext();
 
-            dynamic al = JSIL.FNAHelpers.GetALContext();
+                al.decodeAudioData(fileArrayBuffer, Verbatim.Expression(
+                    "function (buffer) { System.Console.WriteLine('Song {0} decoding complete', $1); $0(buffer); }",
+                    onDecodeComplete, filename
+                ));
 
-            al.decodeAudioData(fileArrayBuffer, Verbatim.Expression(
-                "function (buffer) { console.log('decode complete'); $0(buffer); }",
-                onDecodeComplete
-            ));
-            Console.WriteLine("Decode started");
+                Console.WriteLine("Song {0} decoding started", filename);
+            } catch {
+                Console.WriteLine("Song {0} decoding failed", filename);
+                throw;
+            }
         }
 
         internal static object PlaySong (object audioBuffer, float volume) {
