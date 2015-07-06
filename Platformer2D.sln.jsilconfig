@@ -1,10 +1,7 @@
 ﻿{
   "Assemblies": {
-    "Proxies": [
-      "bin/JSIL/JSILProxies.dll"
-    ],
+    "Proxies": [],
   	"Ignored": [
-  	  "JSILProxies",
       "System.Xml",
       "System.Numerics",
       "System.Dynamic",

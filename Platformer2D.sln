@@ -3,14 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSILProxies", "JSILProxies\JSILProxies.csproj", "{F089FFEA-823C-40EB-86BD-39079B9C8F57}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FNA", "..\FNA\FNA.csproj", "{35253CE1-C864-4CD3-8249-4D1319748E8F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Platformer2D", "Platformer2D\Platformer2D.csproj", "{CAF988BD-5440-405D-95D5-BCAB25FC5241}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F089FFEA-823C-40EB-86BD-39079B9C8F57} = {F089FFEA-823C-40EB-86BD-39079B9C8F57}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +13,6 @@ Global
 		JSIL|x86 = JSIL|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F089FFEA-823C-40EB-86BD-39079B9C8F57}.JSIL|Any CPU.ActiveCfg = Debug|Any CPU
-		{F089FFEA-823C-40EB-86BD-39079B9C8F57}.JSIL|Any CPU.Build.0 = Debug|Any CPU
-		{F089FFEA-823C-40EB-86BD-39079B9C8F57}.JSIL|x86.ActiveCfg = Debug|Any CPU
-		{F089FFEA-823C-40EB-86BD-39079B9C8F57}.JSIL|x86.Build.0 = Debug|Any CPU
 		{35253CE1-C864-4CD3-8249-4D1319748E8F}.JSIL|Any CPU.ActiveCfg = JSIL|x86
 		{35253CE1-C864-4CD3-8249-4D1319748E8F}.JSIL|Any CPU.Build.0 = JSIL|x86
 		{35253CE1-C864-4CD3-8249-4D1319748E8F}.JSIL|x86.ActiveCfg = JSIL|x86
