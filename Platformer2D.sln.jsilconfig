@@ -7,7 +7,10 @@
       "System.Dynamic",
       "System.Configuration",
       "Microsoft.CSharp"
-  	]
+  	],
+    "Redirects": {
+      "mscorlib" : "mscorlib, Version=4.0.0.0" 
+    }    
   },
   "CodeGenerator": {
 	 "EnableUnsafeCode": true
