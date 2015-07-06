@@ -1,2 +1,3 @@
-del /q bin\JSIL\*
-call ..\JSIL\bin\JSILc Platformer2D.sln --configuration=JSIL --out=bin/JSIL/
+@del /q bin\JSIL\*
+@rem Building Platformer2D.sln will fail because msbuild and portable assemblies don't get along. Sigh...
+@call ..\JSIL\bin\JSILc Platformer2D.jsilconfig Platformer2D\bin\x86\Platformer2D.exe --configuration=JSIL --out=bin/JSIL/
